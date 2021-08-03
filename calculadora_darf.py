@@ -92,7 +92,6 @@ def carregar_darf_por_arquivo(arquivo):
     return dfs_darf
 
 
-
 def carregar_valores_darf(arquivo_darf):
     try:
         dfs_darf_escolhida = carregar_darf(arquivo_darf)
