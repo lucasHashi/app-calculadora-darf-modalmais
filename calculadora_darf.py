@@ -12,6 +12,19 @@ warnings.filterwarnings("ignore")
 
 
 
+def main():
+    arquivos_darf = listar_arquivos_darf()
+
+    darf_escolhida = arquivos_darf[0]
+
+    imposto_a_pagar = calcular_imposto_a_pagar_darf(darf_escolhida)
+
+    print(darf_escolhida)
+    print('R$', imposto_a_pagar)
+
+
+
+
 def listar_arquivos_darf():
     return list(os.listdir(os.path.join('.', 'darfs')))
 
@@ -159,17 +172,6 @@ def calcular_imposto_a_pagar_darf(arquivo_darf):
     imposto_a_pagar = np.ceil(imposto_a_pagar * 100) / 100
 
     return imposto_a_pagar
-
-
-def main():
-    arquivos_darf = listar_arquivos_darf()
-
-    darf_escolhida = arquivos_darf[0]
-
-    imposto_a_pagar = calcular_imposto_a_pagar_darf(darf_escolhida)
-
-    print(darf_escolhida)
-    print('R$', imposto_a_pagar)
 
 
 
