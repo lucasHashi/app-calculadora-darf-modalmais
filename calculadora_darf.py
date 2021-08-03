@@ -76,7 +76,8 @@ def carregar_darf_por_arquivo(arquivo):
 def carregar_valores_darf(arquivo_darf):
     try:
         dfs_darf_escolhida = carregar_darf_por_arquivo(arquivo_darf)
-    except:
+    except Exception as erro:
+        print(erro)
         dfs_darf_escolhida = carregar_darf_por_caminho(arquivo_darf)
 
     dados_completos_darf = []
