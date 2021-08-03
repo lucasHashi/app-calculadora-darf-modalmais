@@ -16,6 +16,26 @@ def listar_arquivos_darf():
     return list(os.listdir(os.path.join('.', 'darfs')))
 
 
+def carregar_darf(arquivo):
+    dfs_darf = []
+
+    indice_pagina = 1
+    pagina_valida = True
+    while pagina_valida:
+        try:
+            df_darf = tabula.read_pdf(
+                arquivo,
+                pages = indice_pagina
+            )
+
+            dfs_darf.append(df_darf)
+            indice_pagina += 1
+        except tabula.io.subprocess.CalledProcessError:
+            pagina_valida = False
+
+    return dfs_darf
+
+
 def carregar_darf_por_caminho(nome_arquivo):
     dfs_darf = []
 
@@ -74,11 +94,11 @@ def carregar_darf_por_arquivo(arquivo):
 
 
 def carregar_valores_darf(arquivo_darf):
-    import streamlit as st
     try:
+        dfs_darf_escolhida = carregar_darf(arquivo_darf)
+    except ValueError:
         dfs_darf_escolhida = carregar_darf_por_arquivo(arquivo_darf)
-    except Exception as erro:
-        st.write(erro)
+    except Exception:
         dfs_darf_escolhida = carregar_darf_por_caminho(arquivo_darf)
 
     dados_completos_darf = []
