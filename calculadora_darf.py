@@ -107,16 +107,14 @@ def carregar_darf_por_arquivo(arquivo):
 
 
 def carregar_valores_darf(arquivo_darf):
-    import streamlit as st
-    try:
-        dfs_darf_escolhida = carregar_darf(arquivo_darf)
-        st.write(1)
-    except ValueError:
-        dfs_darf_escolhida = carregar_darf_por_arquivo(arquivo_darf)
-        st.write(2)
-    except Exception:
-        dfs_darf_escolhida = carregar_darf_por_caminho(arquivo_darf)
-        st.write(3)
+    dfs_darf_escolhida = carregar_darf_por_arquivo(arquivo_darf)
+    
+    # try:
+    #     dfs_darf_escolhida = carregar_darf(arquivo_darf)
+    # except ValueError:
+    #     dfs_darf_escolhida = carregar_darf_por_arquivo(arquivo_darf)
+    # except Exception:
+    #     dfs_darf_escolhida = carregar_darf_por_caminho(arquivo_darf)
 
     dados_completos_darf = []
     for pagina in dfs_darf_escolhida:
