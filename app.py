@@ -10,7 +10,7 @@ def main():
     st.write('# Como é feito o calculo?')
     st.write('Essas são as minhas primeiras DARFs, então não sou o mais experiente nesse calculo')
     st.write('Segui esse tutorial pra fazer esse app:')
-    st.write('https://youtu.be/7pEJAAMd_q0')
+    st.write('https://www.youtube.com/watch?v=dZNy2BsHM90')
 
     st.write('# Calculadora de DARF')
     # arquivos_darf = calculos_darf.listar_arquivos_darf()
